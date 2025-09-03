@@ -5,7 +5,7 @@
 
     <ul>
       {% for x in mycustomer %}
-      <li> <a href="/detalhes/{{x.customer_id}}">{{ x.first_name }} {{ x.last_name }}: </a> <a href="/payment/{{x.customer_id}}">Pagamento</a></li>
+      <li> <a href="/detalhes/{{x.customer_id}}">{{ x.first_name }} {{ x.last_name }}: </a> <a href="/payment/{{x.customer_id}}">Pagamento</a><a href="/edit_customer/{{x.customer_id}}">Editar</a></li>
       {% endfor %}
     </ul>
   </body>

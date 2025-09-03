@@ -2,7 +2,7 @@
 from django.http import HttpResponse
 from django.template import loader
 from .models import Customer, Rental, Country, Payment
-from django.shortcuts import get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
 def customer(request):
     customer = Customer.objects.all().values()
@@ -11,6 +11,19 @@ def customer(request):
     'mycustomer': customer,
 }
     return HttpResponse(template.render(context, request))
+
+def edit_customer(request,customer_id):
+    customer = get_object_or_404(Customer, pk=customer_id)
+    if request.method == "POST":
+        customer.first_name = request.POST.get('first_name')
+        customer.last_name = request.POST.get('last_name')
+        customer.email = request.POST.get('email')
+        
+        customer.save()
+        return redirect('/customer')
+    return render(request, 'edit_customer.html', {'customer': customer})
+        
+    
 
 def detalhes(request, id):
     myDetalhes = Rental.objects.filter(customer_id=id)
