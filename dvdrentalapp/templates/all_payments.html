@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>Detalhes para {{ customer_name }}</h2>
+    <p>Back to <a href="/customer" >Customers</a></p>
+
+    <table border="1">
+      <tr>
+        <th>payment_id</th>
+        <th>customer_id</th>
+      </tr>
+
+      {% for x in myPayment %}
+      <tr>
+        <td>{{ x.payment_id}}</td>
+        <td>{{x.customer_id}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-<body>
-<h1>Customers</h1>
- 
-<ul>
- {% for x in mycustomer %}
- <li>{{ x.first_name }} {{ x.last_name }}</li>
- {% endfor %}
-</ul>
-</body>
+  <body>
+    <h1>Customers</h1>
+
+    <ul>
+      {% for x in mycustomer %}
+      <li> <a href="/detalhes/{{x.customer_id}}">{{ x.first_name }} {{ x.last_name }}: </a> <a href="/payment/{{x.customer_id}}">Pagamento</a></li>
+      {% endfor %}
+    </ul>
+  </body>
 </html>
