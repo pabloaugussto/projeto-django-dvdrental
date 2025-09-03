@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Countries</h1>
+ 
+<ul>
+ {% for x in country %}
+ <li>{{ x.country }} {{ x.country_id }}</li>
+ {% endfor %}
+</ul>
+</body>
+</html>
