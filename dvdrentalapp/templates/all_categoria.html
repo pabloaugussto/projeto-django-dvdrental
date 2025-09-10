@@ -1,0 +1,33 @@
+
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Todas as Categorias</title>
+</head>
+<body>
+
+    <h1>Lista de Categorias</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome da Categoria</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for categoria in mycategoria %}
+          <tr>
+            <td>{{ categoria.pk }}</td>
+            <td>{{ categoria.name }}</td>
+            <td>
+              <a href="{% url 'editar_categoria' categoria.pk %}">Editar</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Categoria</title>
+</head>
+<body>
+
+    <h1>Editar Categoria</h1>
+
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <label for="name">Nome:</label><br>
+        <input type="text" id="name" name="name" value="{{ categoria.name }}">
+        
+        <br><br>
+        
+        <button type="submit">Salvar Alterações</button>
+    </form>
+
+</body>
+</html>

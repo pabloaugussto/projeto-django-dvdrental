@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home Cliente</title>
+  </head>
+  <body>
+    <h2>Home Cliente</h2>
+
+    <form method="post">
+      {% csrf_token %}
+
+      <label for="customer_id">ID do Cliente:</label><br />
+      <input
+        type="text"
+        id="customer_id"
+        name="customer_id"
+        value="{{ customer.customer_id }}"
+      /><br />
+
+      <label for="first_name">Primeiro nome:</label><br />
+      <input
+        type="text"
+        id="first_name"
+        name="first_name"
+        value="{{ customer.first_name }}"
+      /><br />
+
+      <label for="last_name">Último Nome:</label><br />
+      <input
+        type="text"
+        id="last_name"
+        name="last_name"
+        value="{{ customer.last_name }}"
+      /><br />
+
+      <input type="submit" value="Salvar Alterações" />
+    </form>
+  </body>
+</html>

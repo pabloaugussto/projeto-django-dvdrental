@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Rental</title>
+  </head>
+  <body>
+    <h2>Rental</h2>
+
+    <form method="post">
+      {% csrf_token %}
+
+      <label for="rental_id">ID Rental:</label><br />
+      <input
+        type="text"
+        id="rental_id"
+        name="rental_id"
+        value="{{ rental_id }}"
+      /><br />
+
+      <label for="rental_date">Data:</label><br />
+      <input
+        type="text"
+        id="rental_date"
+        name="rental_date"
+        value="{{ rental_date }}"
+      /><br />
+
+      <label for="inventary_id">ID do Inventário</label><br />
+      <input
+        type="text"
+        id="inventary_id"
+        name="inventary_id"
+        value="{{ rental.inventary_id }}"
+      /><br />
+
+      <input type="submit" value="Salvar Alterações" />
+    </form>
+  </body>
+</html>

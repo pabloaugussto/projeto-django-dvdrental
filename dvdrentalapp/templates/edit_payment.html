@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Pagamentos</title>
+  </head>
+  <body>
+    <h2>Pagamentos</h2>
+
+    <form method="post">
+      {% csrf_token %}
+
+      <label for="payment_id">ID do pagamento:</label><br />
+      <input
+        type="text"
+        id="payment_id"
+        name="payment_id"
+        value="{{ payment.id }}"
+      /><br />
+
+      <label for="payment_date">Data do pagamento:</label><br />
+      <input
+        type="text"
+        id="payment_date"
+        name="payment_date"
+        value="{{ payment.date }}"
+      /><br />
+
+    </form>
+  </body>
+</html>
