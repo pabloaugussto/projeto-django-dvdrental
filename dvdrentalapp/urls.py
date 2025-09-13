@@ -1,3 +1,4 @@
+
 from django.urls import path
 from . import views
 
@@ -13,6 +14,13 @@ urlpatterns = [
     path('categoria.html/<int:category_id>/', views.categoria, name='detalhes_categoria'),
     path('edit_categoria/<int:category_id>/', views.editcategoria, name='editar_categoria'),
     path('rental/', views.rental, name='myRental'), 
+     path('films/', views.list_films, name='list_films_url'),
+    path('add_film/', views.add_film, name='add_film_url'),
+    path('add_category/', views.add_category, name='add_category'), 
+    path('categories/', views.list_categories, name='list_categories'),
+    path('listacustomer1/', views.listacustomer1, name='listacustomer1'),
+    path('listacustomer/', views.listacustomer, name='listacustomer'),
+    path('search_film_actors/', views.search_film_actors, name='search_film_actors_url'),
     
 ]
 

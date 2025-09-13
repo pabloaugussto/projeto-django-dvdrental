@@ -1,0 +1,51 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    margin: 0;
+    padding: 20px
+}
+
+.container{
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+h1{
+    color: #0056b3;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.customer-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.customer-table th, .customer-table td{
+    border-bottom: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.customer-table th{
+    background-color: #007bff;
+    color: white;
+}
+
+.customer-table tbody tr:hover{
+    background-color: #e9ecef;
+}
+
+.status-active{
+    color: #28a745;
+    font-weight: bold;    
+}
+
+.status-inactive{
+    color: #dc3545;
+    font-weight: italic;
+}

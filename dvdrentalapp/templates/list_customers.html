@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customers</title>
+    <link rel="stylesheet" href="{% static 'mycss.css' %}">
+</head>
+<body>
+    
+    <div class="container">
+
+        <h1>Customers</h1>
+
+        <table class="customer-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Primeiro Nome</th>
+                    <th>Último Nome</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for x in listcustomer %}
+                    <tr>
+                        <td>{{ x.customer_id }}</td>
+                        <td>{{ x.first_name }}</td>
+                        <td>{{ x.last_name }}</td>
+                        
+                        {% if x.activebool %}
+                            <td class="status-active">Ativo</td>
+                        {% else %}
+                            <td class="status-inactive">Inativo</td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+</html>

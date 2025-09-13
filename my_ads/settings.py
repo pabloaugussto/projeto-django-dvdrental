@@ -78,11 +78,14 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'dvdrental',
         'USER': 'postgres',
-        'PASSOWORD': '12345678',
+        'PASSWORD': '123456',   # corrigido
         'HOST': '127.0.0.1',
-        'PORT': '5432'
+        'PORT': '5432',
     }
 }
+
+
+
 
 
 # Password validation

@@ -1,4 +1,3 @@
-
 from django.db import models
 
 class Actor(models.Model):
@@ -94,10 +93,10 @@ class Film(models.Model):
     rental_rate = models.DecimalField(max_digits=4, decimal_places=2)
     length = models.SmallIntegerField(blank=True, null=True)
     replacement_cost = models.DecimalField(max_digits=5, decimal_places=2)
-    rating = models.TextField(blank=True, null=True)  # This field type is a guess.
+    rating = models.TextField(blank=True, null=True)
     last_update = models.DateTimeField()
-    special_features = models.TextField(blank=True, null=True)  # This field type is a guess.
-    fulltext = models.TextField()  # This field type is a guess.
+    special_features = models.TextField(blank=True, null=True)
+    fulltext = models.TextField()
 
     class Meta:
         managed = False
@@ -105,25 +104,27 @@ class Film(models.Model):
 
 
 class FilmActor(models.Model):
-    pk = models.CompositePrimaryKey('actor_id', 'film_id')
-    actor = models.ForeignKey(Actor, models.DO_NOTHING)
+    actor = models.ForeignKey(Actor, models.DO_NOTHING, primary_key=True)
     film = models.ForeignKey(Film, models.DO_NOTHING)
     last_update = models.DateTimeField()
 
     class Meta:
         managed = False
         db_table = 'film_actor'
+        unique_together = (('actor', 'film'),)
 
 
 class FilmCategory(models.Model):
-    pk = models.CompositePrimaryKey('film_id', 'category_id')
-    film = models.ForeignKey(Film, models.DO_NOTHING)
+    # CORREÇÃO APLICADA AQUI
+    film = models.ForeignKey(Film, models.DO_NOTHING, primary_key=True)
     category = models.ForeignKey(Category, models.DO_NOTHING)
     last_update = models.DateTimeField()
 
     class Meta:
         managed = False
         db_table = 'film_category'
+        # ADICIONADO PARA VERSÕES ANTIGAS DO DJANGO
+        unique_together = (('film', 'category'),)
 
 
 class Inventory(models.Model):
@@ -202,4 +203,3 @@ class Store(models.Model):
     class Meta:
         managed = False
         db_table = 'store'
-

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscar Atores por Filme</title>
+</head>
+<body>
+    <h1>Buscar Atores por Filme</h1>
+
+    <form action="{% url 'search_film_actors_url' %}" method="get">
+        <label for="search_title">Procurar por Título do Filme:</label>
+        <input type="text" id="search_title" name="search_title" value="{{ search_title }}">
+        <button type="submit">Procurar</button>
+    </form>
+
+    <hr>
+
+    <h3>Resultados:</h3>
+    <ul>
+        {% for fa in film_actors %}
+            <li>
+                <strong>Filme:</strong> {{ fa.film.title }} | 
+                <strong>Ator:</strong> {{ fa.actor.first_name }} {{ fa.actor.last_name }}
+            </li>
+        {% empty %}
+            <li>Nenhum resultado encontrado.</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
