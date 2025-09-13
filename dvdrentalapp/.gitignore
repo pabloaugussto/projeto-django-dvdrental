@@ -1,0 +1,14 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+env/
+MeuMundo/
+
+# SQLite database
+db.sqlite3
+
+# Outros
+.vscode/

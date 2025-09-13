@@ -18,7 +18,7 @@ def edit_customer(request, customer_id):
         customer.last_name = request.POST.get('last_name')
         customer.email = request.POST.get('email')
         customer.save()
-        return redirect('mycustomer') # Melhorado: Usando nome da URL
+        return redirect('mycustomer') 
     return render(request, 'edit_customer.html', {'customer': customer})
 
 def detalhes(request, id):
