@@ -2,7 +2,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from .models import Customer, Rental, Country, Payment, Category, Film, Language, FilmActor
+from .models import Customer, Rental, Country, Payment, Category, Film, Language, FilmActor, Inventory 
 
 def customer(request):
     all_customers = Customer.objects.all().values()
@@ -146,6 +146,41 @@ def listacustomer(request):
         'listcustomer': mycustomers,
     }
     return render(request, 'list_customers.html', context)
+
+
+def edit_film(request, film_id):
+    film = get_object_or_404(Film, pk=film_id)
+
+    
+    if request.method == 'POST':
+        film.title = request.POST.get('title')
+        film.description = request.POST.get('description')
+        film.release_year = request.POST.get('release_year')
+        film.save() 
+        return redirect('/films/') 
+
+    
+    context = {
+        'film': film
+    }
+    return render(request, 'edit_film.html', context)
+
+def film_details(request, film_id):
+    
+    film = get_object_or_404(Film, pk=film_id)
+    
+    inventory_items = Inventory.objects.filter(film_id=film_id)
+
+    context = {
+        'film': film,
+        'inventory_items': inventory_items,
+    }
+    return render(request, 'film_details.html', context)
+
+
+
+    
+    
 
 
 

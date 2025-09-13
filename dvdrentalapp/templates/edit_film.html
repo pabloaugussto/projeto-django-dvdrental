@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Filme</title>
+    <link rel="stylesheet" href="{% static 'mycss.css' %}">
+</head>
+<body>
+<div class="container">
+    <h1>Editar Filme: {{ film.title }}</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        
+        <label for="title">Título:</label><br>
+        <input type="text" id="title" name="title" value="{{ film.title }}" style="width: 90%; padding: 8px;"><br><br>
+        
+        <label for="description">Descrição:</label><br>
+        <textarea id="description" name="description" rows="5" style="width: 90%; padding: 8px;">{{ film.description }}</textarea><br><br>
+
+        <label for="release_year">Ano de Lançamento:</label><br>
+        <input type="number" id="release_year" name="release_year" value="{{ film.release_year }}"><br><br>
+        
+        <input type="submit" value="Salvar Alterações">
+    </form>
+    <br>
+    <a href="/films/">Cancelar e Voltar</a>
+</div>
+</body>
+</html>

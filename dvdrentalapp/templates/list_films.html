@@ -1,33 +1,22 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Lista de Filmes</title>
-</head>
-<body>
-    <h1>Lista de Filmes</h1>
-
-    <table>
-        <thead>
+<table class="customer-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Ano</th>
+            <th>Ações</th> </tr>
+    </thead>
+    <tbody>
+        {% for film in films %}
             <tr>
-                <th>Titulo</th>
-                <th>Ano de Lançamento</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for film in films %}
-            <tr>
+                <td>{{ film.film_id }}</td>
                 <td>{{ film.title }}</td>
                 <td>{{ film.release_year }}</td>
+                <td>
+                    <a href="/film_details/{{ film.film_id }}/">Detalhes</a>
+                    <a href="/edit_film/{{ film.film_id }}/">Editar</a>
+                </td>
             </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
-    <br>
-
-    <a href="{% url 'add_film_url' %}">
-        <button>Adicionar Novo Filme</button>
-    </a>
-</body>
-</html>
+        {% endfor %}
+    </tbody>
+</table>

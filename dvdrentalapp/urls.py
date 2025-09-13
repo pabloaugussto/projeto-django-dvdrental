@@ -21,6 +21,7 @@ urlpatterns = [
     path('listacustomer1/', views.listacustomer1, name='listacustomer1'),
     path('listacustomer/', views.listacustomer, name='listacustomer'),
     path('search_film_actors/', views.search_film_actors, name='search_film_actors_url'),
-    
+    path('film_details/<int:film_id>/', views.film_details, name='film_details_url'),
+    path('edit_film/<int:film_id>/', views.edit_film, name='edit_film_url'),
 ]
 

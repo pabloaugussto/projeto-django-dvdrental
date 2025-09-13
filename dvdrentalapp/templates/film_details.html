@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalhes de {{ film.title }}</title>
+    <link rel="stylesheet" href="{% static 'mycss.css' %}">
+</head>
+<body>
+<div class="container">
+    <h1>Detalhes do Filme: {{ film.title }}</h1>
+    <p>Abaixo estão todos os itens de inventário (cópias físicas) para este filme.</p>
+
+    <table class="customer-table">
+        <thead>
+            <tr>
+                <th>ID do Inventário</th>
+                <th>ID da Loja</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in inventory_items %}
+                <tr>
+                    <td>{{ item.inventory_id }}</td>
+                    <td>{{ item.store_id }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="2">Nenhum item de inventário encontrado para este filme.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="/films/">Voltar para a Lista de Filmes</a>
+</div>
+</body>
+</html>
