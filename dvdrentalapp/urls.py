@@ -23,5 +23,6 @@ urlpatterns = [
     path('search_film_actors/', views.search_film_actors, name='search_film_actors_url'),
     path('film_details/<int:film_id>/', views.film_details, name='film_details_url'),
     path('edit_film/<int:film_id>/', views.edit_film, name='edit_film_url'),
+    path('city/<int:city_id>/', views.city_detail, name='city_detail_url'),
 ]
 

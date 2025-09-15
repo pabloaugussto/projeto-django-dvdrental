@@ -2,7 +2,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from .models import Customer, Rental, Country, Payment, Category, Film, Language, FilmActor, Inventory 
+from .models import Customer, Rental, Country, Payment, Category, Film, Language, FilmActor, Inventory, City
 
 def customer(request):
     all_customers = Customer.objects.all().values()
@@ -176,6 +176,13 @@ def film_details(request, film_id):
         'inventory_items': inventory_items,
     }
     return render(request, 'film_details.html', context)
+
+def city_detail(request, city_id): #busca e mostra os detalhes de uma 'cidade'
+    city = get_object_or_404(City, pk=city_id)
+    context = {
+        'city': city,
+    }
+    return render(request, 'city_detail.html', context) 
 
 
 
